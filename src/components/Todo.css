@@ -1,0 +1,41 @@
+
+   
+   .container{
+   
+       position: relative;
+       top: 50px;
+       height: 400px;
+       left: 300px;
+       width: 300px;
+       border: 1px solid black;
+   
+   }
+   .app-logo{
+       text-align: center;
+   }
+   .enter{
+    position: relative;
+    left: 25px;
+   }
+   .list{
+    position: relative;
+    left: 60px;
+   }
+   .dot{
+    text-align: center;
+   }
+ .remove{
+    position: relative;
+    left: 70px;
+ }
+ .add{
+    position: relative;
+    left: 30px; 
+    background-color: aquamarine;
+ }
+ .add:hover{
+    background-color: white;
+ }
+ .remove:hover{
+    background-color: blueviolet;
+ }

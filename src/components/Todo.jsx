@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Todo.css'
 
 const Todo = () => {
-  const[inputData,setInputData]=useState('')
+  const[inputData, setInputData]=useState('')
   const[todos, setTodos]=useState([
     'Walk for fresh',
     'Rest a while.',
@@ -17,15 +17,22 @@ const Todo = () => {
 
   // const handelSubmit=()=>{}
   function handleSubmit(){
-    setTodos([...todos,inputData]);
+    setTodos([...todos, inputData]);
     setInputData('');
 
   }
   function removeall(){
     setTodos([]);
-    
-
   }
+
+  function deleteTodo(index){
+    const newTodos =([...todos])
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }
+  // function updateTodo(index){
+
+  // }
 
 
 
@@ -58,7 +65,16 @@ const Todo = () => {
 
           
             {todos.map ((todo) => (
-              <li>{todo}  <button>edit</button><button>delete</button></li>
+              <li>{todo} 
+             <button 
+             
+             >
+              edit
+              </button>
+             <button
+             className='deleteclass'
+             onClick={() => deleteTodo(todos.indexOf(todo))}>
+              delete</button></li>
               
             ))}
 

@@ -39,3 +39,18 @@
  .remove:hover{
     background-color: blueviolet;
  }
+ .updateclass{
+   position: relative;
+   left: 25px;
+
+ }
+ .deleteclass{
+   position: relative;
+   left: 25px;
+ }
+ .updateclass:hover{
+   background-color: burlywood;
+ }
+ .deleteclass:hover{
+   background-color: red;
+ }

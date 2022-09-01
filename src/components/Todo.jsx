@@ -30,9 +30,13 @@ const Todo = () => {
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
-  // function updateTodo(index){
-
-  // }
+  function updateTodo(index){
+    const newTodos = [...todos]
+        newTodos.splice(index, 1, inputData)
+        setTodos(newTodos)
+        setInputData('')
+        
+  }
 
 
 
@@ -66,11 +70,17 @@ const Todo = () => {
           
             {todos.map ((todo) => (
               <li>{todo} 
+
              <button 
-             
+             className='updateclass'
+             onClick={() => updateTodo(todos.indexOf(todo))}
+               value={inputData}
+              onChange={(e) => setInputData(e.target.value)}
              >
               edit
               </button>
+
+
              <button
              className='deleteclass'
              onClick={() => deleteTodo(todos.indexOf(todo))}>

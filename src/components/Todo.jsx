@@ -1,15 +1,30 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import './Todo.css'
 
 const Todo = () => {
   const[inputData, setInputData]=useState('')
-  const[todos, setTodos]=useState([
-    'Walk for fresh',
-    'Rest a while.',
-    'feed a dog.',
-    'Watch a movie.'
-  ])
+  const[todos, setTodos]=useState(JSON.parse(localStorage.getItem('lists')) || []
+    // 'Walk for fresh',
+    // 'Rest a while.',
+    // 'feed a dog.',
+    // 'Watch a movie.'
+  )
   console.log(inputData);
+
+  useEffect(()=>{
+    localStorage.setItem('lists',JSON.stringify(todos))
+  },[todos]);
+
+  
+
+  useEffect(()=>{
+    const data =JSON.parse(localStorage.getItem('lists'));
+    if (data)
+{
+  setTodos(data);
+} 
+ },[]);
 
   // arrow function can also be used 
   // const handleSubmit= =>{}
@@ -25,18 +40,27 @@ const Todo = () => {
     setTodos([]);
   }
 
+
+
   function deleteTodo(index){
     const newTodos =([...todos])
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
+
+
   function updateTodo(index){
     const newTodos = [...todos]
         newTodos.splice(index, 1, inputData)
         setTodos(newTodos)
-        setInputData('')
+        setInputData(todos[index])
         
   }
+ 
+
+  // function storeData{
+  //   localStorage.setItem('todos',JSON.stringify(todos));
+  // }todo()
 
 
 
@@ -74,8 +98,10 @@ const Todo = () => {
              <button 
              className='updateclass'
              onClick={() => updateTodo(todos.indexOf(todo))}
-               value={inputData}
+              value={inputData}
               onChange={(e) => setInputData(e.target.value)}
+              
+             
              >
               edit
               </button>

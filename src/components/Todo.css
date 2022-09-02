@@ -8,6 +8,8 @@
        left: 300px;
        width: 500px;
        border: 1px solid black;
+       border: spacing 10px;
+
    
    }
    .app-logo{
@@ -25,6 +27,7 @@
     text-align: center;
    }
  .remove{
+    
     position: relative;
     left: 70px;
  }
